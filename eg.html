@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+}
+
+#telegram-button {
+    background-color: #0088cc;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.animate-send:before {
+    content: "\2708"; /* Unicode character for the airplane icon */
+    position: absolute;
+    top: 0;
+    left: -50px;
+    transition: transform 0.5s ease;
+}
+
+.animate-send.clicked:before {
+    transform: translateX(200px) translateY(-20px);
+    transition: transform 0.5s ease;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#telegram-button {
+    background-color: #0088cc;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.animate-send:before {
+    content: "\2708"; /* Unicode character for the airplane icon */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 24px; /* Increased icon size for better visibility */
+    color: #fff; /* Icon color */
+    transition: transform 0.5s ease;
+}
+
+.animate-send.clicked:before {
+    transform: translateX(200px) translateY(-20px);
+    transition: transform 0.5s ease;
+}
+
+
+    </style>
+</head>
+<body>
+    <button id="telegram-button" class="animate-send">Send Message</button>
+    <script>
+    const telegramButton = document.getElementById("telegram-button");
+
+telegramButton.addEventListener("click", () => {
+    telegramButton.classList.add("clicked");
+
+    setTimeout(() => {
+        telegramButton.classList.remove("clicked");
+    }, 1000); // Reset the animation after 1 second
+});
+
+    </script>
+</body>
+</html>
